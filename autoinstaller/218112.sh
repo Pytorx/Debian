@@ -2,6 +2,12 @@
 clear
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+echo "Updating the system..."
+apt update > apache2.log 2>&1 &
+apt upgrade -y > apache2.log 2>&1 &
+clear
+sleep 2
+
 echo "Checking if sudo is installed..."
 if dpkg-query -W sudo; then
   sleep 2
